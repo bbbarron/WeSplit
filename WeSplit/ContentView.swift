@@ -4,7 +4,7 @@
 //
 //  Created by Barry Barron on 7/14/22.
 //  Modified 7/23/22 to add challenge portions and other feature changes
-//  version 1.1 includes first two chnllenge additions
+//  version 1.1 includes first two challenge additions
 
 import SwiftUI
 
