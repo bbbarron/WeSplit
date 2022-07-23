@@ -4,7 +4,7 @@
 //
 //  Created by Barry Barron on 7/14/22.
 //  Modified 7/23/22 to add challenge portions and other feature changes
-//  version 1.1 includes first two challenge additions
+//  version 1.2 Final version all chanllenges inculded
 
 import SwiftUI
 
@@ -50,6 +50,9 @@ struct ContentView: View {
                     }
                 }
                 
+                
+                
+                
                 Section {
                     Picker("Tip percentage", selection: $tipPercentage) {
                         ForEach(tipPercentages, id: \.self) {
@@ -61,6 +64,19 @@ struct ContentView: View {
                     Text("Tip percentage?")  // Changed from "How much tip do you want to leave?"
                 }
                 
+                
+//                Section { //this section removed - part of the 3rd challenge question
+//                    Picker("Tip percentage", selection: $tipPercentage) {
+//                        ForEach(2..<101) {
+//                            Text($0, format: .percent)
+//                        }
+//                    }
+//                    .pickerStyle(.menu)
+//                } header: {
+//                    Text("Tip percentage?")  // Changed from "How much tip do you want to leave?"
+//                }
+                
+    
                 Section { // Challenge section added to show total receipt plus tip
                     Text(checkTotal, format: .currency(code: Locale.current.currencyCode ?? "USD"))
                 } header: {
