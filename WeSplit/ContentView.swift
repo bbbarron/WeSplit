@@ -46,7 +46,7 @@ struct ContentView: View {
                     
                     Picker("Number of people", selection: $numberOfPeople) {
                         ForEach(1..<11) {  // Reduced range from 100 originally
-                            Text("\($0) people")
+                            Text("\($0) ")
                         }
                     }
                 }
@@ -80,17 +80,18 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("WeSplit")
-            //            .toolbar {
-            //                ToolbarItemGroup(placement: .keyboard) {
-            //                    Spacer()
-            //                    Button("Done") {
-            //                        amountIsFocused = false
-            //                    }
+            .toolbar {
+                ToolbarItemGroup(placement: .keyboard) {
+                Spacer()
+                Button("Done") {
+                    amountIsFocused = false
+                }
+            }
         }
     }
+
 }
-
-
+}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
