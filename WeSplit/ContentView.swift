@@ -15,6 +15,8 @@ struct ContentView: View {
     @FocusState private var amountIsFocused: Bool
     //@State private var useRedText = true ////
     
+    let localCurrency: FloatingPointFormatStyle<Double>.Currency = .currency(code: Locale.current.currencyCode ?? "USD")
+    
     let tipPercentages = [10, 15, 18, 20, 25, 0]  // Added 18%
     
     var totalPerPerson: Double {
@@ -40,7 +42,7 @@ struct ContentView: View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Amount", value: $checkAmount, format: .currency(code: Locale.current.currencyCode ?? "USD"))
+                    TextField("Amount", value: $checkAmount, format: localCurrency)
                         .keyboardType(.decimalPad)
                         .focused($amountIsFocused)
                     
@@ -67,14 +69,14 @@ struct ContentView: View {
                 
                 
                 Section { // Challenge section added to show total receipt plus tip
-                    Text(checkTotal, format: .currency(code: Locale.current.currencyCode ?? "USD"))
+                    Text(checkTotal, format: localCurrency)
                         .foregroundColor(tipPercentage == 0 ? .red : .primary) // red when 0 tip
                 } header: {
                     Text("Receipt total with tip")  // Added header
                 }
                 
                 Section {
-                    Text(totalPerPerson, format: .currency(code: Locale.current.currencyCode ?? "USD"))
+                    Text(totalPerPerson, format: localCurrency)
                 } header: {
                     Text("Amount per person")  // Added header
                 }
