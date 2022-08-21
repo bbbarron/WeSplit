@@ -18,7 +18,7 @@ struct ContentView: View {
     let tipPercentages = [10, 15, 18, 20, 25, 0]  // Added 18%
     
     var totalPerPerson: Double {
-        let peopleCount = Double(numberOfPeople + 2)
+        let peopleCount = Double(numberOfPeople + 1)
         let tipSelection = Double(tipPercentage)
         
         let tipValue = checkAmount / 100 * tipSelection
@@ -45,7 +45,7 @@ struct ContentView: View {
                         .focused($amountIsFocused)
                     
                     Picker("Number of people", selection: $numberOfPeople) {
-                        ForEach(2..<21) {  // Reduced range from 100 originally
+                        ForEach(1..<11) {  // Reduced range from 100 originally
                             Text("\($0) people")
                         }
                     }
@@ -65,7 +65,7 @@ struct ContentView: View {
                     Text("Tip percentage?")  // Changed from "How much tip do you want to leave?"
                 }
                 
-    
+                
                 Section { // Challenge section added to show total receipt plus tip
                     Text(checkTotal, format: .currency(code: Locale.current.currencyCode ?? "USD"))
                         .foregroundColor(tipPercentage == 0 ? .red : .primary) // red when 0 tip
@@ -80,17 +80,17 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("WeSplit")
-            .toolbar {
-                ToolbarItemGroup(placement: .keyboard) {
-                    Spacer()
-                    Button("Done") {
-                        amountIsFocused = false
-                    }
-                }
-            }
+            //            .toolbar {
+            //                ToolbarItemGroup(placement: .keyboard) {
+            //                    Spacer()
+            //                    Button("Done") {
+            //                        amountIsFocused = false
+            //                    }
         }
     }
 }
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
